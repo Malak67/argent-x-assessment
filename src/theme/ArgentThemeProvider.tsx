@@ -1,22 +1,24 @@
-import React, { FC } from 'react'
-import { ThemeProvider } from '@mui/material/styles'
-import createCache from '@emotion/cache'
-import { CacheProvider } from '@emotion/react'
-import { theme } from './theme'
+import React, { FC } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import { theme } from './theme';
 
 export const muiCache = createCache({
   key: 'mui',
-  prepend: true
-})
+  prepend: true,
+});
 
 type ArgentThemeProps = {
-  children: React.ReactNode; // 👈️ type children
+  children: React.ReactNode;
 };
 
-export const ArgentThemeProvider: FC<ArgentThemeProps> = (props: ArgentThemeProps) => {
+export const ArgentThemeProvider: FC<ArgentThemeProps> = (
+  props: ArgentThemeProps
+) => {
   return (
     <CacheProvider value={muiCache}>
       <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
     </CacheProvider>
-  )
-}
+  );
+};
