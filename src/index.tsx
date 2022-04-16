@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 import { ArgentThemeProvider } from './theme';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -24,7 +25,9 @@ root.render(
     <ArgentThemeProvider>
       <CssBaseline />
       <DAppProvider config={config}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </DAppProvider>
     </ArgentThemeProvider>
   </React.StrictMode>

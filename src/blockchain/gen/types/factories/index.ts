@@ -2,4 +2,3 @@
 /* tslint:disable */
 /* eslint-disable */
 export { ArgentContract__factory } from "./ArgentContract__factory";
-export { ERC20TokenContract__factory } from "./ERC20TokenContract__factory";
