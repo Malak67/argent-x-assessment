@@ -13,12 +13,12 @@ type ArgentThemeProps = {
   children: React.ReactNode;
 };
 
-export const ArgentThemeProvider: FC<ArgentThemeProps> = (
-  props: ArgentThemeProps
-) => {
+export const ArgentThemeProvider: FC<ArgentThemeProps> = ({
+  children,
+}: ArgentThemeProps) => {
   return (
     <CacheProvider value={muiCache}>
-      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </CacheProvider>
   );
 };

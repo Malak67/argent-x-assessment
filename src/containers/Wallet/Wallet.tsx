@@ -23,28 +23,32 @@ export const Wallet = ({ walletAddress }: { walletAddress: string }) => {
           </Typography>
         </Box>
       )}
-      {guardians && (
-        <Box>
-          <Typography variant='h4'>Number of guardians</Typography>
-          <Typography variant='h3' fontWeight='600'>
-            {guardians?.toNumber()}
-          </Typography>
-        </Box>
-      )}
+      <Box>
+        <Typography variant='h4'>Number of guardians</Typography>
+        <Typography variant='h3' fontWeight='600'>
+          {guardians || 0}
+        </Typography>
+      </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography variant='h3' mb={2}>
           ERC20 tokens
         </Typography>
-        {tokens?.length &&
-          tokens.map((token: ERC20Token, index: number) => {
-            return (
+        {tokens?.map(
+          (token: ERC20Token, index: number) =>
+            token.rawBalance &&
+            token.tokenInfo.symbol &&
+            token.tokenInfo.decimals && (
               <Box
                 key={`token-${token.tokenInfo.name}-${token.tokenInfo.symbol}-${token.rawBalance}-${index}`}
               >
-                <Token token={token} />
+                <Token
+                  rawBalance={token.rawBalance}
+                  symbol={token.tokenInfo.symbol}
+                  decimals={token.tokenInfo.decimals}
+                />
               </Box>
-            );
-          })}
+            )
+        )}
       </Box>
     </Box>
   );

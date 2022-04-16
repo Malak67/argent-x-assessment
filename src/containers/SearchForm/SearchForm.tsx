@@ -54,9 +54,7 @@ export const SearchForm = () => {
                   variant='outlined'
                   onBlur={onBlur}
                   value={value}
-                  onChange={(e) => {
-                    onChange(e);
-                  }}
+                  onChange={onChange}
                   error={!!error}
                   helperText={error?.message}
                 />
