@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Box, Paper, Typography } from '@mui/material';
 import { SearchForm } from '../containers';
 import { Mainnet, useEthers } from '@usedapp/core';
 
-export const Home: FC = () => {
+export const Home = () => {
   const { chainId } = useEthers();
 
   if (chainId !== Mainnet.chainId) {
@@ -21,12 +21,7 @@ export const Home: FC = () => {
           padding: '40px',
         }}
       >
-        <Typography
-          color='primary'
-          variant='h2'
-          align='center'
-          width={'100%'}
-        >
+        <Typography color='primary' variant='h2' align='center' width={'100%'}>
           You must be connected to Mainnet in order to proceed!
         </Typography>
       </Paper>

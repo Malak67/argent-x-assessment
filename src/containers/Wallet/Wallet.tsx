@@ -1,17 +1,18 @@
+import React from 'react';
 import { formatEther } from '@ethersproject/units';
 import { Box, Typography } from '@mui/material';
-import React, { FC } from 'react';
 import { ERC20Token } from '../../types';
 import { Loading, Token } from '../../components';
 import { useWalletEffects } from './Wallet.effects';
 
-export const Wallet: FC<{ walletAddress: string }> = ({ walletAddress }) => {
+export const Wallet = ({ walletAddress }: { walletAddress: string }) => {
   const { etherBalance, guardians, tokens, isLoading } =
     useWalletEffects(walletAddress);
 
   if (isLoading) {
     return <Loading text='Searching Tokens for Wallet...' />;
   }
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }} my={3}>
       {etherBalance && (
@@ -40,7 +41,7 @@ export const Wallet: FC<{ walletAddress: string }> = ({ walletAddress }) => {
               <Box
                 key={`token-${token.tokenInfo.name}-${token.tokenInfo.symbol}-${token.rawBalance}-${index}`}
               >
-                <Token {...token} />
+                <Token token={token} />
               </Box>
             );
           })}

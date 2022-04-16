@@ -1,10 +1,10 @@
+import React from 'react';
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
-import React, { FC } from 'react';
 import { Controller } from 'react-hook-form';
 import { Wallet } from '../Wallet';
 import { useSearchFormEffects } from './SearchForm.effects';
 
-export const SearchForm: FC = () => {
+export const SearchForm = () => {
   const { control, handleSubmit, onSubmit, walletAddress } =
     useSearchFormEffects();
 
@@ -22,8 +22,8 @@ export const SearchForm: FC = () => {
         padding: '40px',
       }}
     >
-      <Typography variant='h2' align='center' width={'100%'} mb={2}>
-        Enter a Wallet Address
+      <Typography variant='h2' mb={2}>
+        Enter your wallet address
       </Typography>
       <form
         style={{ width: '100%' }}
