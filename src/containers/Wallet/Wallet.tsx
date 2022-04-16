@@ -14,7 +14,7 @@ export const Wallet = ({ walletAddress }: { walletAddress: string }) => {
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }} my={3}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: '15px' }} my={3}>
       {etherBalance && (
         <Box>
           <Typography variant='h4'>Wallet Balance</Typography>
@@ -30,7 +30,7 @@ export const Wallet = ({ walletAddress }: { walletAddress: string }) => {
         </Typography>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Typography variant='h3' mb={2}>
+        <Typography variant='h4' mb={1}>
           ERC20 tokens
         </Typography>
         {tokens?.map(
